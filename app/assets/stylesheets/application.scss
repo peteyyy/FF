@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+// Vars
+
+// General
+a:hover{
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited{
+  color: inherit;
+}
+// Header
+.jumbotron {
+  a {
+    color: white;
+  }
+}
+

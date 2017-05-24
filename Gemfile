@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
 
+# Bootstrap
+gem 'bootstrap-sass'
+# font awesome
+gem 'font-awesome-rails'
+# HAML
+gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
