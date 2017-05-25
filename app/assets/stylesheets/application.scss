@@ -16,10 +16,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "variables";
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
-// Vars
 
-// General
+// Fonts
+p {
+  font: $paragraph
+}
+
+// Buttons
+.btn1 {
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: $med-blue;
+  color: white;
+  font: bold 13px Arial;
+  width: 120px;
+}
+.btn1:hover {
+  background-color: $light-blue;
+}
+.simple-link {
+  color: $med-blue;
+  font: $paragraph;
+  text-align: left;
+}
+.simple-link:hover {
+  color: $red;
+}
+// Link Animations
 a:hover{
   background-color: transparent;
   text-decoration: none;
@@ -27,10 +54,38 @@ a:hover{
 a:visited{
   color: inherit;
 }
+
 // Header
-.jumbotron {
+.navbar-default {
+  background-color: $dark-blue;
+  border-radius: 0px;
+  border: none;
   a {
-    color: white;
+    color: $off-white;
+  }
+  .navbar-nav {
+    li {
+      a { color: $off-white; }
+    }
   }
 }
+
+
+// Footer
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .container {
+    padding: 10px 0px;
+    border-top: 1px solid #e7e7e7;
+    span {
+      margin: 0px 10px;
+    }
+    .simple-link {
+      display: inline-block;
+    }
+  }
+}
+
 

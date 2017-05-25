@@ -1,0 +1,39 @@
+@import "variables";
+
+.container {
+  .landing-header {
+    font: lighter 45px $Lato;
+    color: $med-blue;
+  }
+  .landing-subheader {
+    font: bold 15px Arial;
+    line-height: 23px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .upper-tri-info {
+    border-top: 2px solid $red;
+    margin-top: 40px;
+    padding: 0px;
+    margin-right: 20px;
+    width: 160px;
+    h4 {
+      font: bold 15px $Lato;
+    }
+  }
+  .lower-tri-info {
+    font: lighter 24px $Lato;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    p {
+      text-align: left;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+

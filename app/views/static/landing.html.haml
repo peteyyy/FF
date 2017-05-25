@@ -1,7 +1,36 @@
-.jumbotron
-  .container
-    %h1 All the forms you need in one place.
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque reiciendis iste, placeat id laboriosam. Quos nostrum, laboriosam cupiditate deserunt architecto asperiores optio blanditiis, nisi quisquam ab laudantium et excepturi molestias.
-    %p
+.container
+  / Header, Subheader, Get Started Button
+  .col-md-6.col-md-offset-3
+    %h1.landing-header Find all of your forms in one place.
+    %h2.landing-subheader Form Finder takes into account your specific situation to find you the forms you need.
     = link_to 'users/new' do
-      .btn.btn-primary.btn-lg Get Started
+      .btn1 Get Started
+
+  / Business, Personal, Free Section
+  .col-md-6.col-md-offset-3
+    .col-md-4.upper-tri-info
+      %h4 Moves
+      %p Moving your business? There may be dozens of forms you're required to complete, but fear not, we have you covered.
+    .col-md-4.upper-tri-info
+      %h4 Taxes
+      %p Coming soon!
+    .col-md-4.upper-tri-info
+      %h4 Free
+      %p Almost every tool for businesses costs money, so we decided not to. Our goal is to provide clarity for complicated processes.
+
+  /All Forms, About, Contact
+  .col-md-4.lower-tri-info
+    %h3 All Forms
+    %p Our index of forms grows every day. We want to be prepared to find the exact forms you need even in the most obscure scenario.
+    = link_to '#' do
+      .simple-link Learn More >>
+  .col-md-4.lower-tri-info
+    %h3 About
+    %p We understand the struggle and confusion of looking for forms as well as the repercussions that can come if you don't fill them out correctly. We're here to help.
+    = link_to '#' do
+      .simple-link Learn More >>
+  .col-md-4.lower-tri-info
+    %h3 Contact
+    %p We strive to answer any questions as promptly as possible, and we often provide live chat support!
+    = link_to '#' do
+      .simple-link Learn More >>
