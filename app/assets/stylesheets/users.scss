@@ -1,3 +1,59 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+// Users#New
+.form-page1 {
+  .form-blue-bg {
+    background-color: $light-blue;
+    height: 50%;
+    width: 100%;
+    position: fixed;
+    top: 50px;
+  }
+}
+
+// Users#New Form Partial
+.form1 {
+  background-color: $off-white;
+  padding: 15px;
+  margin-top: 175px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  border: 1px solid $med-blue;
+  height: 350px;
+  .step-count {
+    font: lighter 45px $Lato;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .form-group {
+    .margin-bottom: 10px
+    label {
+      font: $sub-header;
+    }
+    select {
+      width: 152px;
+    }
+  }
+  .submit-btn {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+// Users#Edit
+.form-page2 {
+  @extend .form-page1;
+}
+
+.form2 {
+  @extend .form1;
+}
+
+// Users#Show
+.flextest {
+  background-color: red;
+}
+.user-show {
+  h2 {
+    text-align: center;
+  }
+}

@@ -34,9 +34,24 @@ p {
   color: white;
   font: bold 13px Arial;
   width: 120px;
+  border: none;
 }
 .btn1:hover {
   background-color: $light-blue;
+  cursor: pointer;
+}
+.btn2 {
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: $red;
+  border: none;
+  color: white;
+  font: bold 13px Arial;
+  width: 120px;
+}
+.btn2:hover{
+  background-color: $light-red;
 }
 .simple-link {
   color: $med-blue;
@@ -46,6 +61,7 @@ p {
 .simple-link:hover {
   color: $red;
 }
+
 // Link Animations
 a:hover{
   background-color: transparent;
@@ -66,6 +82,11 @@ a:visited{
   .navbar-nav {
     li {
       a { color: $off-white; }
+      a:hover {
+        color: $off-white;
+        text-decoration: underline;
+      }
+      a:visited { color: $off-white; }
     }
   }
 }
