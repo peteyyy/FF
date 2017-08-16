@@ -7,6 +7,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 # HAML
 gem 'haml'
+# RMagick
+gem 'rmagick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_forms, only: [:show]
 
   # GET /users
   # GET /users.json
@@ -70,5 +71,19 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:state, :city, :task, :entity, :employees, :revenue, :registered_agent, :email)
+    end
+
+    def set_user_forms
+      @user.actions.destroy_all
+      if @user.task == "Change Of Address"
+        @user.actions.create(form: (Form.where(name: "CofAIRS").first))
+        if @user.employees == true
+          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}DES").first)) unless Form.where(name: "CofA#{@user.state.upcase}DES").first.nil?
+        end
+        if @user.entity == "LLC"
+          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}articlesofamendment").first)) unless Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}articlesofamendment").first.nil?
+          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first)) unless Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first.nil?
+        end
+      end
     end
 end

@@ -1,7 +1,6 @@
-
 .user-show
   .container
     .col-xs-12
       %h2= "Your #{@user.task} Forms for your #{@user.city}, #{@user.state} #{@user.entity}."
-
-
+      - @user.forms.each do |form|
+        %h2= form.document
