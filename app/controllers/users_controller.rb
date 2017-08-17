@@ -85,5 +85,8 @@ class UsersController < ApplicationController
           @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first)) unless Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first.nil?
         end
       end
+      if @user.task == "Annual/Biennual Report"
+        @user.actions.create(form: (Form.where(name: "AR#{@user.state.upcase}#{@user.entity.upcase}annualreport").first)) unless Form.where(name: "AR#{@user.state.upcase}#{@user.entity.upcase}annualreport").first.nil?
+      end
     end
 end
