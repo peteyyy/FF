@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :entity, presence: true
-  validates :task, presence: true
+  validates :action, presence: true
 
 
   validates :employees, on: :update, :inclusion => {:in => [true, false]}

@@ -4,10 +4,8 @@
       %h2= "Your #{@user.task} Forms for your #{@user.city}, #{@user.state} #{@user.entity}."
       - @user.forms.each do |form|
         .form-thumb
-          / Magick Thumbnail goes here
+          = image_tag(form.thumbnail)
           %h3= form.document
           = link_to "Learn More", {:controller => "forms", :action => "show", :id => form.id}
-          %h3= form.location
-          = image_tag("thumbnails/LLC-50.1.png")
 
 

@@ -68,25 +68,20 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:state, :city, :task, :entity, :employees, :revenue, :registered_agent, :email)
+      params.require(:user).permit(:state, :city, :action, :entity, :employees, :revenue, :registered_agent, :email)
     end
 
     def set_user_forms
       @user.actions.destroy_all
-      if @user.task == "Change Of Address"
-        @user.actions.create(form: (Form.where(name: "CofAIRS").first))
-        if @user.employees == true
-          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}DES").first)) unless Form.where(name: "CofA#{@user.state.upcase}DES").first.nil?
-        end
-        if @user.entity == "LLC"
-          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}articlesofamendment").first)) unless Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}articlesofamendment").first.nil?
-          @user.actions.create(form: (Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first)) unless Form.where(name: "CofA#{@user.state.upcase}#{@user.entity.upcase}statementofchange").first.nil?
-        end
+      general_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL")
+      employee_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL", condition: "employees")
+      revenue_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL", condition: "revenue")
+      if @user.employees
+        # (assign forms) unless employee_forms.empty?
       end
-      if @user.task == "Annual/Biennual Report"
-        @user.actions.create(form: (Form.where(name: "AR#{@user.state.upcase}#{@user.entity.upcase}annualreport").first)) unless Form.where(name: "AR#{@user.state.upcase}#{@user.entity.upcase}annualreport").first.nil?
+      if @user.revenue
+        # (assign forms) unless revenue_forms.empty?
       end
     end
 end
