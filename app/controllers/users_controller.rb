@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    case @user.action
+    when "CofA"
+      @action = "Change Of Address"
+    when "AR"
+      @action = "Annual Report"
+    end
   end
 
   # GET /users/new
@@ -74,14 +80,26 @@ class UsersController < ApplicationController
 
     def set_user_forms
       @user.actions.destroy_all
-      general_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL")
-      employee_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL", condition: "employees")
-      revenue_forms = Form.where(state: @user.state || "ALL", entity: @user.entity || "ALL", action: @user.action || "ALL", condition: "revenue")
-      if @user.employees
-        # (assign forms) unless employee_forms.empty?
+
+
+      general_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"])
+      general_forms.each do |form|
+        @user.actions.create(form: form)
       end
-      if @user.revenue
-        # (assign forms) unless revenue_forms.empty?
+
+      employee_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"], condition: "employees")
+      if @user.employees && employee_forms
+        employee_forms.each do |form|
+          @user.actions.create(form: form)
+        end
+      end
+
+      revenue_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"], condition: "revenue")
+      if @user.revenue && revenue_forms
+        revenue_forms.each do |form|
+          @user.actions.create(form: form)
+        end
       end
     end
+
 end

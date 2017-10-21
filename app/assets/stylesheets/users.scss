@@ -49,11 +49,20 @@
 }
 
 // Users#Show
-.flextest {
-  background-color: red;
-}
 .user-show {
-  h2 {
-    text-align: center;
+  .hero-strip {
+    background-color: $light-blue;
+    margin-top: -20px;
+    width: 100%;
+    h2 {
+      color: white;
+      font: $header;
+      font-size: 40px;
+      line-height: 80px;
+      margin: 40px 0px;
+    }
+  }
+  .form-deliver{
+
   }
 }

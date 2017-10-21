@@ -1,11 +1,12 @@
 .user-show
-  .container
-    .col-xs-12
-      %h2= "Your #{@user.task} Forms for your #{@user.city}, #{@user.state} #{@user.entity}."
-      - @user.forms.each do |form|
-        .form-thumb
-          = image_tag(form.thumbnail)
-          %h3= form.document
-          = link_to "Learn More", {:controller => "forms", :action => "show", :id => form.id}
-
+  .hero-strip
+    .container
+      .col-xs-6
+        %h2= "Your #{@action} Forms for an #{@user.entity} in #{@user.city}, #{@user.state}."
+  .form-deliver
+    - @user.forms.each do |form|
+      .form-thumb
+        = image_tag(form.thumbnail)
+        %h3= form.document
+        = link_to "Learn More", {:controller => "forms", :action => "show", :id => form.id}
 
