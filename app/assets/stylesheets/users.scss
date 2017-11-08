@@ -54,7 +54,7 @@
     background-color: $light-blue;
     margin-top: -20px;
     width: 100%;
-    h2 {
+    h1 {
       color: white;
       font: $header;
       font-size: 40px;
@@ -63,6 +63,36 @@
     }
   }
   .form-deliver{
-
+    .gray-box {
+      margin-top: 30px;
+      padding-bottom: 10px;
+      background-color: #F6F6F6;
+      .col-xs-10 {
+        padding: 0px;
+      }
+      h2 {
+        font: $Lato;
+        color: #3f3f3f;
+        font-size: 25px;
+      }
+      .document-white-bg {
+        background-color: white;
+        margin-bottom: 10px;
+        height: 300px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .learn-more-arrow {
+        text-align: right;
+        img {
+          width: 30px;
+        }
+      }
+    }
+    .gray-box:hover {
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.50);
+    }
   }
 }

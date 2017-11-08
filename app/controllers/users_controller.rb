@@ -80,25 +80,23 @@ class UsersController < ApplicationController
 
     def set_user_forms
       @user.actions.destroy_all
-
-
       general_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"])
-      general_forms.each do |form|
-        @user.actions.create(form: form)
-      end
+      forms = []
+      (forms << general_forms.to_a).flatten!
 
       employee_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"], condition: "employees")
       if @user.employees && employee_forms
-        employee_forms.each do |form|
-          @user.actions.create(form: form)
-        end
+        (forms << employee_forms.to_a).flatten!
       end
 
       revenue_forms = Form.where(state: [@user.state, "ALL"], entity: [@user.entity, "ALL"], action: [@user.action, "ALL"], condition: "revenue")
       if @user.revenue && revenue_forms
-        revenue_forms.each do |form|
-          @user.actions.create(form: form)
-        end
+        (forms << revenue_forms.to_a).flatten!
+      end
+      forms.uniq!
+      @forms = forms
+      forms.each do |form|
+        @user.actions.create(form: form)
       end
     end
 

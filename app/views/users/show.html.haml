@@ -2,11 +2,16 @@
   .hero-strip
     .container
       .col-xs-6
-        %h2= "Your #{@action} Forms for an #{@user.entity} in #{@user.city}, #{@user.state}."
-  .form-deliver
-    - @user.forms.each do |form|
-      .form-thumb
-        = image_tag(form.thumbnail)
-        %h3= form.document
-        = link_to "Learn More", {:controller => "forms", :action => "show", :id => form.id}
-
+        %h1= "Your #{@action} Forms for an #{@user.entity} in #{@user.city}, #{@user.state}."
+  .container
+    .form-deliver
+      - @user.forms.each do |form|
+        .col-lg-4.col-md-6.col-xs-12
+          = link_to form do
+            .col-xs-12.gray-box
+              .col-xs-10.col-xs-offset-1
+                %h2= form.document
+              .col-xs-10.col-xs-offset-1.document-white-bg
+                = image_tag(form.thumbnail)
+              .col-xs-10.col-xs-offset-1.learn-more-arrow
+                = image_tag("arrow2")
