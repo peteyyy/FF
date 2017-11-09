@@ -94,9 +94,10 @@ a:visited{
 
 // Footer
 .footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
+  margin-top: 40px;
   .container {
     padding: 10px 0px;
     border-top: 1px solid #e7e7e7;
