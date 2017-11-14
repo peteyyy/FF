@@ -86,10 +86,10 @@
         }
       }
       .learn-more-arrow {
-        text-align: right;
-        .fa {
-          font-size: 20px;
-          color: $light-blue;
+        font-size: 20px;
+        color: $light-blue;
+        .fa-arrow-right {
+          text-align: right;
         }
       }
     }
