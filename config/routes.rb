@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
 
-  resources :forms
   root to: "static#landing"
+  get '/privacy', to: 'static#privacy'
+
+  resources :users
+  resources :forms
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

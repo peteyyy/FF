@@ -15,7 +15,7 @@
       .col-md-4.col-md-offset-2.col-xs-6
         = f.label "State:"
       .col-md-5.col-md-offset-1.col-xs-6.col-xs-6
-        = f.text_field :state
+        = f.select(:state, options_for_select(@state_list))
     .form-group.row
       .col-md-4.col-md-offset-2.col-xs-6
         = f.label "Action:"

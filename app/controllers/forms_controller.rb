@@ -10,6 +10,8 @@ class FormsController < ApplicationController
   # GET /forms/1
   # GET /forms/1.json
   def show
+    @state_full = state_from_abbrev(@form.state)
+    # @state_full = @form.state
   end
 
   # GET /forms/new

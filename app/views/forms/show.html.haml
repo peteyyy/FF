@@ -1,6 +1,11 @@
 .container.bp
-  .col-md-9.col-md-offset-1
-    %h1 8822-B — Change of Address or Reponsible Party
-    %h2 Internal Revenue Service (IRS)
+  .col-md-9.col-md-offsenotebook
+    - if @form.state == "ALL"
+      %h1= @form.name
+    - else
+      %h1= (@state_full + " " + @form.name)
+    %h2= @form.department
     %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae!
-    = link_to "View Document", asset_path(@form.location), target: :_blank
+  .col-md-10.col-md-offset-1
+    .btn1
+      = link_to "View Document", asset_path(@form.location), target: :_blank

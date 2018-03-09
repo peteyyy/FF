@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user_forms, only: [:show]
+  before_action :set_state_list, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
