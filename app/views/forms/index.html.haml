@@ -1,2 +1,5 @@
-- Form.all.each do |form|
-  = form.document
+.container.form-list
+  - Form.all.each do |form|
+    .col-md-2.col-xs-4
+      = link_to form do
+        = form.document
