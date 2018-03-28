@@ -5,7 +5,7 @@
     - else
       %h1= (@state_full + " " + @form.name)
     %h2= @form.department
-    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa numquam veniam quae nesciunt corrupti cum culpa iste optio ex obcaecati sequi perferendis quas aliquam, molestias qui dolorem debitis at molestiae!
+    %p= @description
   .col-md-10.col-md-offset-1
     .btn1
       = link_to "View Document", asset_path(@form.location), target: :_blank

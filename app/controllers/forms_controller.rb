@@ -11,6 +11,11 @@ class FormsController < ApplicationController
   # GET /forms/1.json
   def show
     @state_full = state_from_abbrev(@form.state)
+    if @form.description
+      @description = @form.description
+    else
+      @description = "A description of the document is coming soon."
+    end
   end
 
   # GET /forms/new
